@@ -38,4 +38,6 @@
 <li>Contacts import / export function.</li>
 <li>Dark theme and a switcher between light / dark theme.</li>
 
+<h1></h1>
+
 <img src="./Addressbook-webApp-screenshot.png"/>
