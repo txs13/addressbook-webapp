@@ -37,6 +37,7 @@
 <li>Another views for the contact list (i.e. as a table).</li>
 <li>Contacts import / export function.</li>
 <li>Dark theme and a switcher between light / dark theme.</li>
+<li>If you run the dockerized verion of the app, frontend is accesible on a port 3000 and is linked to the react dev server. Later on it is going to be linked to the build version.</li>
 
 <h1></h1>
 

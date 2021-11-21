@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  addressbook-react-app:
+    build: ./client
+    image: addressbook-react-app
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - addressbook-app      
+  addressbook-api-server:
+    build: ./server
+    image: addressbook-api-server
+    ports: 
+      - "5000:5000"
+    networks:
+      - addressbook-app
+    depends_on:
+      - mongo  
+  mongo:
+    image: mongo:5.0.4
+    ports:
+      - "27017:27017"
+    networks:  
+      - addressbook-app
+    volumes:
+      - mongo-data:/data/addreessbook-db
+networks:
+  addressbook-app:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local

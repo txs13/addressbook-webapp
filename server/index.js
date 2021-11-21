@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from 'dotenv'
 import cors from 'cors'
-import mongoose from 'mongoose'
 
 import connectDb from "./db/connect.js";
 import router from './routes/contacts.js'
@@ -27,10 +26,9 @@ app.use(notFound)
 
 const start = async () => {
     try {
-        await connectDb(process.env.DB_URI)
-        // mongoose.set('debug', (collectionName, methodName, ...methodArgs) => {
-        //     console.log(methodArgs);
-        // })
+        const connectionString = process.env.DB_URI || "mongodb://mongo:27017/calculator_app"
+        await connectDb(connectionString)
+
         app.listen(port,()=>{
             console.log(`server is listening on port ${port}...`);
         })
